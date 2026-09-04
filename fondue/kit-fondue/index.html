@@ -1,0 +1,120 @@
+<!DOCTYPE html><!--5_bUNYsz6emdZGUEAt2RI--><html lang="pt-BR" class="__variable_71fdf6"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="image" href="../../simbolo-espiga.svg"/><link rel="preload" as="image" href="../../simbolo-espiga-areia.svg"/><link rel="preload" as="image" href="../../imagens/produto-kit-fondue.webp"/><link rel="stylesheet" href="../../_next/static/css/e7156a976850eda4.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="../../_next/static/chunks/webpack-24c88528d9575373.js"/><title>Kit Fondue | DÉLI By Chef Júlia Andrade</title><meta name="description" content="Um menu completo com fondue de queijo e chocolate, com todos os itens de acompanhamento e explicação detalhada. Serve 2 ou 4 pessoas."/><meta name="robots" content="index, follow"/><link rel="canonical" href="https://www.delichefjuliaandrade.com.br/fondue/kit-fondue/"/><meta property="og:title" content="Kit Fondue | DÉLI By Chef Júlia Andrade"/><meta property="og:description" content="Um menu completo com fondue de queijo e chocolate, com todos os itens de acompanhamento e explicação detalhada. Serve 2 ou 4 pessoas."/><meta property="og:image" content="https://www.delichefjuliaandrade.com.br/imagens/produto-kit-fondue.webp"/><meta property="og:image:alt" content="Mesa montada com a panela de fondue de queijo e as tigelas de acompanhamento"/><meta property="og:type" content="article"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Kit Fondue | DÉLI By Chef Júlia Andrade"/><meta name="twitter:description" content="Um menu completo com fondue de queijo e chocolate, com todos os itens de acompanhamento e explicação detalhada. Serve 2 ou 4 pessoas."/><meta name="twitter:image" content="https://www.delichefjuliaandrade.com.br/imagens/produto-kit-fondue.webp"/><meta name="twitter:image:alt" content="Mesa montada com a panela de fondue de queijo e as tigelas de acompanhamento"/><style>
+@media (max-width:1023px){
+  header nav[aria-label="Principal"][data-aberto]{display:block;position:absolute;left:0;right:0;top:100%;background:var(--color-papel);border-top:1px solid var(--color-linha);padding:0 1.25rem}
+  header nav[aria-label="Principal"][data-aberto] ul{display:block}
+  header nav[aria-label="Principal"][data-aberto] li{border-bottom:1px solid var(--color-linha)}
+  header nav[aria-label="Principal"][data-aberto] li:last-child{border-bottom:0}
+  header nav[aria-label="Principal"][data-aberto] a{display:block;padding:1rem 0}
+}
+</style>
+<script>
+document.addEventListener("click",function(e){
+  var b=e.target.closest('button[aria-controls="menu-movel"]');
+  if(!b)return;
+  var n=b.closest("header").querySelector('nav[aria-label="Principal"]');
+  if(!n)return;
+  var aberto=n.hasAttribute("data-aberto");
+  if(aberto){n.removeAttribute("data-aberto");b.textContent="Menu"}
+  else{n.setAttribute("data-aberto","");b.textContent="Fechar"}
+  b.setAttribute("aria-expanded",String(!aberto));
+});
+</script><style>
+[data-em-breve]{opacity:.45;cursor:default;text-decoration:none!important;border-color:transparent!important}
+[data-em-breve]::after{content:" (em breve)";font-size:.6875rem;letter-spacing:.14em;opacity:.85}
+/* No menu do topo o rotulo dobra a largura de cada item e a barra quebra em
+   cima do logotipo. La o item sai de cena; no rodape e no corpo ele fica, que
+   e onde o cliente enxerga o mapa do site sem estragar layout. */
+header nav li:has([data-em-breve]){display:none}
+</style><script>
+/* Vai no head, entao precisa esperar o corpo existir. Sem isto o
+   querySelectorAll roda com a pagina ainda vazia e nao acha nada. */
+document.addEventListener("DOMContentLoaded",function(){
+  var alvos=document.querySelectorAll(".surgir,.revelar");
+  if(!alvos.length)return;
+  var mostrarTudo=function(){for(var i=0;i<alvos.length;i++)alvos[i].setAttribute("data-visivel","")};
+  if(!("IntersectionObserver" in window)){mostrarTudo();return}
+  var reduz=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  for(var i=0;i<alvos.length;i++){
+    var el=alvos[i];
+    el.setAttribute(el.classList.contains("revelar")&&reduz?"data-suave":"data-pronto","");
+  }
+  requestAnimationFrame(function(){requestAnimationFrame(function(){
+    var ob=new IntersectionObserver(function(es){
+      for(var i=0;i<es.length;i++){
+        if(es[i].isIntersecting){es[i].target.setAttribute("data-visivel","");ob.unobserve(es[i].target)}
+      }
+    },{rootMargin:"0px 0px -8% 0px",threshold:0.02});
+    for(var i=0;i<alvos.length;i++)ob.observe(alvos[i]);
+    setTimeout(mostrarTudo,4000); // rede de seguranca: nada fica invisivel
+  })});
+});
+</script><script>
+document.addEventListener("DOMContentLoaded",function(){
+  var trilhos=document.querySelectorAll("[data-carrossel-trilho]");
+  var reduz=window.matchMedia("(prefers-reduced-motion: reduce)");
+  for(var i=0;i<trilhos.length;i++)(function(t){
+    var caixa=t.closest("[data-carrossel-caixa]")||t.parentNode;
+    var ant=caixa.querySelector('[data-carrossel="anterior"]');
+    var prox=caixa.querySelector('[data-carrossel="proximo"]');
+    var pausa=caixa.querySelector('[data-carrossel="pausa"]');
+    var barra=caixa.querySelector("[data-carrossel-percurso]");
+    var vel=parseFloat(t.getAttribute("data-auto"))||0;
+    /* scrollLeft e arredondado para pixel inteiro pelo navegador, e cada quadro
+       anda menos de meio pixel. Sem guardar a posicao em ponto flutuante aqui,
+       a fracao se perde e o trilho fica parado. */
+    var pos=t.scrollLeft, parado=false, folga=0;
+    var s={mouse:false,foco:false,dedo:false,fora:false};
+
+    var medir=function(){
+      var metade=t.scrollWidth/2;
+      if(barra)barra.style.width=Math.max(8,(metade>0?(t.scrollLeft%metade)/metade:0)*100)+"%";
+    };
+    t.addEventListener("scroll",function(){
+      if(Math.abs(t.scrollLeft-pos)>2)pos=t.scrollLeft;
+      medir();
+    },{passive:true});
+    window.addEventListener("resize",medir);
+    medir();
+
+    var empurrar=function(d){
+      var pri=t.querySelector("li");
+      var vao=parseFloat(getComputedStyle(t).columnGap||"0")||0;
+      var passo=pri?pri.getBoundingClientRect().width+vao:t.clientWidth;
+      folga=performance.now()+4000;
+      t.scrollBy({left:d*passo,behavior:reduz.matches?"auto":"smooth"});
+    };
+    if(ant)ant.addEventListener("click",function(){empurrar(-1)});
+    if(prox)prox.addEventListener("click",function(){empurrar(1)});
+    if(pausa)pausa.addEventListener("click",function(){
+      parado=!parado;
+      if(parado){pausa.setAttribute("data-pausado","");pausa.setAttribute("aria-label","Retomar a passagem dos produtos")}
+      else{pausa.removeAttribute("data-pausado");pausa.setAttribute("aria-label","Pausar a passagem dos produtos")}
+    });
+
+    var marcar=function(k,v){return function(){s[k]=v;if(!v)folga=performance.now()+1200}};
+    t.addEventListener("mouseenter",marcar("mouse",true));
+    t.addEventListener("mouseleave",marcar("mouse",false));
+    t.addEventListener("focusin",marcar("foco",true));
+    t.addEventListener("focusout",marcar("foco",false));
+    t.addEventListener("pointerdown",marcar("dedo",true));
+    t.addEventListener("pointerup",marcar("dedo",false));
+    t.addEventListener("pointercancel",marcar("dedo",false));
+
+    if(!vel)return;
+    if("IntersectionObserver" in window){
+      new IntersectionObserver(function(es){s.fora=!es[0].isIntersecting},{threshold:0.15}).observe(t);
+    }
+    var antes=0;
+    (function passo(agora){
+      requestAnimationFrame(passo);
+      var dt=antes?Math.min(agora-antes,120):0; antes=agora;
+      if(parado||reduz.matches||s.mouse||s.foco||s.dedo||s.fora)return;
+      if(agora<folga)return;
+      pos+=vel*dt/1000;
+      var metade=t.scrollWidth/2;
+      if(metade>0&&pos>=metade)pos-=metade;
+      t.scrollLeft=pos;
+    })(0);
+  })(trilhos[i]);
+});
+</script></head><body><div hidden=""><!--$--><!--/$--></div><a href="#conteudo" class="espacado sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-azul focus:px-4 focus:py-2 focus:text-etiqueta focus:text-areia">Ir para o conteúdo</a><header class="sticky top-0 z-40 border-b border-linha bg-papel/95 backdrop-blur-[6px]"><div class="mx-auto flex max-w-[86rem] items-center justify-between gap-6 px-5 py-4 lg:px-10"><a class="flex items-center gap-3" aria-label="DÉLI By Chef Júlia Andrade, ir para a página inicial" href="../../index.html"><img src="../../simbolo-espiga.svg" alt="" width="18" height="26" class="h-7 w-auto"/><span class="leading-none"><span class="block titulo text-[1.35rem] tracking-[0.14em] text-azul">DÉLI</span><span class="espacado mt-[3px] block text-[0.5625rem] text-azul-suave">Chef Júlia Andrade</span></span></a><nav aria-label="Principal" class="hidden lg:block"><ul class="flex items-center gap-8"><li><a class="espacado text-etiqueta text-azul underline-offset-[6px] transition-colors hover:text-dourado hover:underline" href="../../menu/index.html">Menu</a></li><li><span class="espacado text-etiqueta text-azul underline-offset-[6px] transition-colors hover:text-dourado hover:underline"  data-em-breve>A DÉLI</span></li><li><a class="espacado text-etiqueta text-azul underline-offset-[6px] transition-colors hover:text-dourado hover:underline" href="../../chef-julia-andrade/index.html">A chef</a></li><li><span class="espacado text-etiqueta text-azul underline-offset-[6px] transition-colors hover:text-dourado hover:underline"  data-em-breve>Delivery</span></li><li><span class="espacado text-etiqueta text-azul underline-offset-[6px] transition-colors hover:text-dourado hover:underline"  data-em-breve>Mesa posta</span></li><li><span class="espacado text-etiqueta text-azul underline-offset-[6px] transition-colors hover:text-dourado hover:underline"  data-em-breve>Eventos</span></li><li><span class="espacado text-etiqueta text-azul underline-offset-[6px] transition-colors hover:text-dourado hover:underline"  data-em-breve>Entrega</span></li></ul></nav><button type="button" aria-expanded="false" aria-controls="menu-movel" class="espacado border border-azul px-4 py-2 text-etiqueta text-azul lg:hidden">Menu</button></div></header><main id="conteudo"><article><div class="mx-auto max-w-[86rem] px-5 pt-8 lg:px-10"><nav aria-label="Você está em" class="text-nota"><ol class="flex flex-wrap items-center gap-x-2 gap-y-1"><li class="flex items-center gap-2"><a class="text-azul underline-offset-4 hover:underline" href="../../index.html">Início</a><span aria-hidden="true" class="text-linha">/</span></li><li class="flex items-center gap-2"><a class="text-azul underline-offset-4 hover:underline" href="../../menu/index.html">Menu</a><span aria-hidden="true" class="text-linha">/</span></li><li class="flex items-center gap-2"><a class="text-azul underline-offset-4 hover:underline" href="../../fondue/index.html">Fondue</a><span aria-hidden="true" class="text-linha">/</span></li><li class="flex items-center gap-2"><span aria-current="page" class="text-azul-suave">Kit Fondue</span></li></ol></nav></div><div class="mx-auto grid max-w-[86rem] items-start gap-10 px-5 pb-bloco pt-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,32rem)] lg:gap-16 lg:px-10"><figure class="order-1 lg:order-none"><div class="relative aspect-[4/5] w-full overflow-hidden bg-areia"><img alt="Mesa montada com a panela de fondue de queijo e as tigelas de acompanhamento" decoding="async" data-nimg="fill" class="object-cover" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" src="../../imagens/produto-kit-fondue.webp"/></div></figure><div class="order-2 flex flex-col lg:order-none lg:pt-4"><p class="espacado text-etiqueta text-dourado"><a class="hover:text-azul" href="../../fondue/index.html">Fondue</a></p><h1 class="titulo mt-5 max-w-[18ch] text-t1 text-azul">Kit Fondue</h1><p class="subtitulo mt-6 max-w-[52ch] text-corpo-g text-azul-suave">Um menu completo com fondue de queijo e chocolate, com todos os itens de acompanhamento e explicação detalhada.</p><p class="regua mt-9 pt-8"><span class="text-t2 font-light tabular-nums text-azul">R$ 358</span><span class="mt-2 block max-w-[40ch] text-nota text-azul-suave">para 2 pessoas. Para 4 pessoas sai por R$ 648</span></p><div class="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4"><a href="https://chefjuliaandrade.com.br?utm_source=site-institucional&amp;utm_medium=cta&amp;utm_campaign=produto-kit-fondue&amp;utm_content=principal" class="espacado bg-azul px-8 py-4 text-etiqueta text-areia transition-colors hover:bg-azul-profundo">Pedir no cardápio</a><a href="https://wa.me/5521996554988?text=Ol%C3%A1%21+Vi+o+Kit+Fondue+no+site+e+queria+fazer+um+pedido.&amp;utm_source=site-institucional&amp;utm_medium=whatsapp&amp;utm_campaign=produto-kit-fondue&amp;utm_content=principal" class="espacado border-b border-azul pb-1 text-etiqueta text-azul transition-colors hover:border-dourado hover:text-dourado">Falar no WhatsApp</a></div><dl class="mt-12"><div class="regua grid gap-1 py-4 sm:grid-cols-[minmax(0,9rem)_minmax(0,1fr)] sm:gap-6"><dt class="espacado text-etiqueta text-azul-suave sm:pt-[0.3rem]">Serve</dt><dd class="max-w-[46ch] text-azul">2 ou 4 pessoas</dd></div><div class="regua grid gap-1 py-4 sm:grid-cols-[minmax(0,9rem)_minmax(0,1fr)] sm:gap-6"><dt class="espacado text-etiqueta text-azul-suave sm:pt-[0.3rem]">Tamanho</dt><dd class="max-w-[46ch] text-azul">caixa de papelão de 41,5 x 31,5 x 11,5 cm</dd></div><div class="regua grid gap-1 py-4 sm:grid-cols-[minmax(0,9rem)_minmax(0,1fr)] sm:gap-6"><dt class="espacado text-etiqueta text-azul-suave sm:pt-[0.3rem]">O que vem</dt><dd class="max-w-[46ch] text-azul"><ul class="space-y-1"><li>Para 2 pessoas: 400 ml de fonduta de queijo, batatas trufadas com ervas, brócolis no vapor, 50 g de crostini, mini focaccia tradicional de 250 g, 200 ml de ganache de chocolate belga, morangos, uvas e 1 saquinho de mini suspiros de 20 g</li><li>Para 4 pessoas: 800 ml de fonduta de queijo, batatas trufadas com ervas, brócolis no vapor, 100 g de crostini, 1 focaccia tradicional P de 500 g, 400 ml de ganache de chocolate belga, morangos, uvas e 2 saquinhos de mini suspiros de 20 g</li></ul></dd></div><div class="regua grid gap-1 py-4 sm:grid-cols-[minmax(0,9rem)_minmax(0,1fr)] sm:gap-6"><dt class="espacado text-etiqueta text-azul-suave sm:pt-[0.3rem]">Observações</dt><dd class="max-w-[46ch] text-azul"><span class="block">Acompanha card detalhado com instrução para aquecer os itens</span><span class="block">Não estão incluídos panela, utensílios e itens de decoração</span></dd></div></dl><p class="regua mt-10 pt-6 text-nota text-azul-suave">Pedido mínimo de <!-- -->R$ 95<!-- -->. Entrega de<!-- --> <!-- -->segunda a sábado<!-- --> no Rio de Janeiro.</p></div></div></article><section class="border-t border-linha bg-areia"><div class="mx-auto max-w-[86rem] px-5 py-secao lg:px-10"><h2 class="espacado text-etiqueta text-azul-suave">Mais de <!-- -->Fondue</h2><ul class="mt-10 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-10"><li><article><a class="group block" href="../../fondue/kit-fondue-de-queijo/index.html"><div class="relative aspect-[4/5] overflow-hidden bg-areia"><div class="flex h-full items-end p-5"><img src="../../simbolo-espiga.svg" alt="" width="18" height="26" class="h-8 w-auto opacity-25"/></div></div><h3 class="titulo mt-5 text-t3 text-azul group-hover:text-dourado">Kit Fondue de Queijo</h3></a><p class="mt-2 max-w-[36ch] text-nota leading-relaxed text-azul-suave">Serve 2 ou 4 pessoas</p><p class="mt-3"><span class="text-t3 font-light tabular-nums text-azul">R$ 225</span><span class="mt-1 block max-w-[36ch] text-nota text-azul-suave">para 2 pessoas. Para 4 pessoas sai por R$ 399,50</span></p></article></li><li><article><a class="group block" href="../../fondue/fondue-de-chocolate/index.html"><div class="relative aspect-[4/5] overflow-hidden bg-areia"><div class="flex h-full items-end p-5"><img src="../../simbolo-espiga.svg" alt="" width="18" height="26" class="h-8 w-auto opacity-25"/></div></div><h3 class="titulo mt-5 text-t3 text-azul group-hover:text-dourado">Fondue de Chocolate</h3></a><p class="mt-2 max-w-[36ch] text-nota leading-relaxed text-azul-suave">Serve 2 ou 4 pessoas</p><p class="mt-3"><span class="text-t3 font-light tabular-nums text-azul">R$ 144</span><span class="mt-1 block max-w-[36ch] text-nota text-azul-suave">para 2 pessoas. Para 4 pessoas sai por R$ 289,80</span></p></article></li><li><article><a class="group block" href="../../fondue/fonduta-de-queijo-avulsa/index.html"><div class="relative aspect-[4/5] overflow-hidden bg-areia"><div class="flex h-full items-end p-5"><img src="../../simbolo-espiga.svg" alt="" width="18" height="26" class="h-8 w-auto opacity-25"/></div></div><h3 class="titulo mt-5 text-t3 text-azul group-hover:text-dourado">Fonduta de Queijo Avulsa</h3></a><p class="mt-3"><span class="text-t3 font-light tabular-nums text-azul">R$ 89</span></p></article></li></ul></div></section><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://www.delichefjuliaandrade.com.br/"},{"@type":"ListItem","position":2,"name":"Menu","item":"https://www.delichefjuliaandrade.com.br/menu"},{"@type":"ListItem","position":3,"name":"Fondue","item":"https://www.delichefjuliaandrade.com.br/fondue"},{"@type":"ListItem","position":4,"name":"Kit Fondue","item":"https://www.delichefjuliaandrade.com.br/fondue/kit-fondue"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","@id":"https://www.delichefjuliaandrade.com.br/fondue/kit-fondue#produto","name":"Kit Fondue","category":"Fondue","brand":{"@type":"Brand","name":"DÉLI By Chef Júlia Andrade"},"url":"https://www.delichefjuliaandrade.com.br/fondue/kit-fondue","description":"Um menu completo com fondue de queijo e chocolate, com todos os itens de acompanhamento e explicação detalhada.","image":"https://www.delichefjuliaandrade.com.br/imagens/produto-kit-fondue.webp","offers":{"@type":"Offer","price":358,"priceCurrency":"BRL","availability":"https://schema.org/InStock","areaServed":{"@type":"City","name":"Rio de Janeiro"},"seller":{"@id":"https://www.delichefjuliaandrade.com.br/#negocio"}}}</script><!--$--><!--/$--></main><footer class="border-t border-linha bg-azul text-areia"><div class="mx-auto max-w-[86rem] px-5 py-16 lg:px-10 lg:py-24"><div class="grid gap-12 lg:grid-cols-[1.2fr_1fr_1fr]"><div><img src="../../simbolo-espiga-areia.svg" alt="" width="22" height="32" class="h-9 w-auto"/><p class="mt-6 titulo text-t2 leading-tight">DÉLI<span class="mt-1 block text-t3 text-areia/70">By Chef Júlia Andrade</span></p><p class="espacado mt-6 text-etiqueta text-dourado-claro">Da minha casa para a sua</p></div><div><h2 class="espacado text-etiqueta text-areia/60">Onde estamos</h2><address class="mt-4 not-italic leading-relaxed text-areia/90">Av. das Américas, 500<br/>Loja 124, Bloco 21<br/>Shopping Downtown<br/>Barra da Tijuca<!-- -->, <!-- -->Rio de Janeiro<!-- -->, <!-- -->RJ<br/>CEP <!-- -->22640-100</address></div><div><h2 class="espacado text-etiqueta text-areia/60">Navegação</h2><ul class="mt-4 space-y-2"><li><a class="text-areia/90 underline-offset-4 hover:underline" href="../../menu/index.html">Menu</a></li><li><span class="text-areia/90 underline-offset-4 hover:underline"  data-em-breve>A DÉLI</span></li><li><a class="text-areia/90 underline-offset-4 hover:underline" href="../../chef-julia-andrade/index.html">A chef</a></li><li><span class="text-areia/90 underline-offset-4 hover:underline"  data-em-breve>Delivery</span></li><li><span class="text-areia/90 underline-offset-4 hover:underline"  data-em-breve>Mesa posta</span></li><li><span class="text-areia/90 underline-offset-4 hover:underline"  data-em-breve>Eventos</span></li><li><span class="text-areia/90 underline-offset-4 hover:underline"  data-em-breve>Áreas de entrega</span></li><li><span class="text-areia/90 underline-offset-4 hover:underline"  data-em-breve>Perguntas frequentes</span></li></ul></div></div><div class="mt-16 flex flex-col gap-3 border-t border-areia/20 pt-6 text-nota text-areia/60 sm:flex-row sm:items-center sm:justify-between"><p>DÉLI By Chef Júlia Andrade<!-- -->. No Rio de Janeiro desde <!-- -->2020<!-- -->.</p><p>Fotografia dos produtos: <!-- -->Rodrigo Azevedo<!-- -->.</p></div></div></footer><div class="fixed inset-x-0 bottom-0 z-30 border-t border-azul-profundo bg-azul p-3 lg:hidden"><a href="https://wa.me/5521996554988?text=Ol%C3%A1%21+Vi+o+item+kit+fondue+no+site+e+queria+fazer+um+pedido.&amp;utm_source=site-institucional&amp;utm_medium=whatsapp&amp;utm_campaign=fondue-kit-fondue-&amp;utm_content=barra-fixa-celular" target="_blank" rel="noopener noreferrer" class="espacado flex items-center justify-center gap-3 border border-areia/40 px-5 py-3 text-etiqueta text-areia">Pedir pelo WhatsApp<span class="text-areia/70 normal-case tracking-normal">(21) 99655-4988</span></a></div><script type="application/ld+json">{"@context":"https://schema.org","@type":["Restaurant","LocalBusiness"],"@id":"https://www.delichefjuliaandrade.com.br/#negocio","name":"DÉLI By Chef Júlia Andrade","alternateName":"DÉLI","slogan":"Da minha casa para a sua","url":"https://www.delichefjuliaandrade.com.br","servesCuisine":"Delicatessen","address":{"@type":"PostalAddress","streetAddress":"Av. das Américas, 500, Loja 124, Bloco 21","addressLocality":"Rio de Janeiro","addressRegion":"RJ","postalCode":"22640-100","addressCountry":"BR"},"telephone":"+5521996554988","sameAs":["https://www.instagram.com/chefjuliadelicatessen/"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"10:00","closes":"18:00"}],"priceRange":"$$","founder":{"@type":"Person","name":"Júlia Andrade"},"foundingDate":"2020","areaServed":[{"@type":"Place","name":"Barra da Tijuca"},{"@type":"Place","name":"Zona Sul"},{"@type":"Place","name":"Recreio dos Bandeirantes"},{"@type":"Place","name":"Tijuca e Centro"},{"@type":"Place","name":"Jacarepaguá"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.delichefjuliaandrade.com.br/#organizacao","name":"DÉLI By Chef Júlia Andrade","url":"https://www.delichefjuliaandrade.com.br","founder":{"@type":"Person","name":"Júlia Andrade"}}</script><script>(self.__next_f=self.__next_f||[]).push([0])</script></body></html>
