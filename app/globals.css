@@ -1,0 +1,296 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Tokens da marca
+   Fonte: MANUAL DE MARCA - CHEF JULIA ANDRADE, paginas 41, 42, 43 (cores)
+   e paginas 45, 46 (tipografia). Nenhuma cor fora do manual.
+   ========================================================================== */
+
+@theme {
+  /* Cores institucionais, exatamente como o manual define */
+  --color-areia: #e9e5e0;        /* Pantone Neutral Color */
+  --color-azul: #404e65;         /* Pantone 4143 C */
+  --color-dourado: #b0936d;      /* Pantone 4256 C */
+
+  /* Derivacoes tonais das tres cores acima, para hierarquia e estado.
+     Sao a mesma cor em opacidade ou luminosidade diferente, nao cores novas. */
+  --color-areia-claro: #f4f2ef;
+  --color-areia-escuro: #ddd7d0;
+  --color-azul-profundo: #2e394b;
+  --color-azul-suave: #5d6b83;
+  --color-dourado-claro: #c9b294;
+
+  --color-papel: var(--color-areia-claro);
+  --color-tinta: var(--color-azul);
+  --color-linha: #c9c2b9;
+
+  /* Tipografia oficial.
+     Nicole Regular e uma display geometrica leve. O manual e a marca sempre a
+     usam em caixa alta e com entreletra aberta, nunca em texto corrido.
+     Montserrat, segundo a pagina 44 do manual, atende titulos, sub-titulos e
+     texto corrido. A hierarquia abaixo respeita esses dois papeis. */
+  --font-display: "Nicole", var(--font-montserrat), "Helvetica Neue", Arial, sans-serif;
+  --font-texto: var(--font-montserrat), "Helvetica Neue", Arial, sans-serif;
+
+  /* Escala tipografica: poucos tamanhos, hierarquia clara */
+  --text-display: clamp(1.625rem, 4vw, 3.25rem);
+  --text-display--line-height: 1.2;
+  --text-t1: clamp(1.375rem, 2.7vw, 2.125rem);
+  --text-t1--line-height: 1.26;
+  --text-t2: clamp(1.1875rem, 1.9vw, 1.5rem);
+  --text-t2--line-height: 1.34;
+  --text-t3: clamp(1rem, 1.25vw, 1.125rem);
+  --text-t3--line-height: 1.35;
+  --text-corpo: 1.0625rem;
+  --text-corpo--line-height: 1.7;
+  --text-corpo-g: 1.1875rem;
+  --text-corpo-g--line-height: 1.7;
+  --text-nota: 0.875rem;
+  --text-nota--line-height: 1.55;
+  --text-etiqueta: 0.6875rem;
+  --text-etiqueta--line-height: 1.2;
+
+  /* Ritmo vertical */
+  --spacing-secao: clamp(4.5rem, 10vw, 9rem);
+  --spacing-bloco: clamp(2rem, 5vw, 4rem);
+
+  /* Altura do cabecalho fixo. Serve para a primeira dobra fechar na tela.
+     Se o cabecalho mudar de altura, este valor muda junto. */
+  --altura-cabecalho: 4.2rem;
+
+  /* Cantos: o manual e a embalagem sao retos. Nada arredondado alem disto. */
+  --radius-nada: 0px;
+  --radius-min: 2px;
+}
+
+@font-face {
+  font-family: "Nicole";
+  src: url("/fontes/Nicole-Regular.woff2") format("woff2"),
+       url("/fontes/Nicole-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-papel);
+  color: var(--color-tinta);
+  font-family: var(--font-texto);
+  font-size: var(--text-corpo);
+  line-height: var(--text-corpo--line-height);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-azul);
+  color: var(--color-areia);
+}
+
+/* Foco visivel sempre, requisito de acessibilidade do briefing */
+:focus-visible {
+  outline: 2px solid var(--color-azul);
+  outline-offset: 3px;
+}
+
+.pilha > * + * {
+  margin-block-start: 1em;
+}
+
+/* Letra espacada, o gesto tipografico do manual (todos os titulos do PDF) */
+.espacado {
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Titulo na voz da marca: Nicole, caixa alta, entreletra aberta.
+   O tamanho maior pede menos entreletra, senao a linha desmancha. */
+.titulo {
+  font-family: var(--font-display);
+  /* Caixa alta com entreletra aberta quebra mal em tela estreita sem isto. */
+  overflow-wrap: break-word;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+  word-spacing: 0.08em;
+}
+
+.titulo-grande {
+  letter-spacing: 0.055em;
+}
+
+/* Sub-titulo e texto de leitura longa ficam em Montserrat, caixa normal. */
+.subtitulo {
+  font-family: var(--font-texto);
+  font-weight: 300;
+  letter-spacing: -0.005em;
+}
+
+/* Regra fina de secao, como as linhas do manual */
+.regua {
+  border-block-start: 1px solid var(--color-linha);
+}
+
+/* Revelacao da fotografia. Ver components/Revelar.tsx.
+   A curva e desacelerada no fim, para o movimento parar e nao frear. */
+/* Revelacao da fotografia. Ver components/Revelar.tsx.
+
+   Nada de recorte no elemento observado: o Chrome passa a considerar a area de
+   intersecao como zero quando o alvo se recorta, e o IntersectionObserver deixa
+   de disparar. Aqui quem se move e uma cortina sobreposta. */
+.revelar {
+  position: relative;
+}
+
+.revelar[data-pronto] {
+  overflow: hidden;
+}
+
+/* Sem JavaScript a cortina nao existe, entao a foto nunca fica escondida. */
+.revelar-cortina {
+  display: none;
+}
+
+/* O estado de partida entra sem transicao. Declarar a transicao aqui faria o
+   navegador animar ATE o estado de partida, que e o contrario do pretendido:
+   a foto cresceria devagar ate o aumento em vez de sair dele. */
+.revelar[data-pronto] > .revelar-cortina {
+  display: block;
+  position: absolute;
+  inset: -1px 0 0 0;
+  z-index: 2;
+  background: var(--color-areia);
+  transform: translateY(0);
+  transition: none;
+}
+
+.revelar[data-pronto] img {
+  transform: translateY(3%) scale(1.07);
+  transition: none;
+}
+
+/* A transicao vive so na chegada. */
+.revelar[data-visivel] > .revelar-cortina {
+  transform: translateY(-101%);
+  transition: transform 900ms cubic-bezier(0.65, 0, 0.35, 1);
+  transition-delay: inherit;
+}
+
+/* A foto sobe atras da cortina, mais devagar, e continua assentando depois que
+   ela ja saiu. O contratempo e o que da profundidade ao gesto. */
+.revelar[data-visivel] img {
+  transform: none;
+  transition: transform 1600ms cubic-bezier(0.16, 0.84, 0.44, 1);
+  transition-delay: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Mesma regra do modo normal: o estado de partida entra sem transicao, senao
+     a foto esmaece ate sumir antes de voltar. */
+  .revelar[data-suave] > *:not(.revelar-cortina) {
+    opacity: 0;
+    transition: none !important;
+  }
+  .revelar[data-suave][data-visivel] > *:not(.revelar-cortina) {
+    opacity: 1;
+    transition: opacity 600ms linear !important;
+    transition-delay: inherit;
+  }
+}
+
+/* Entrada de texto ao rolar. Ver components/Surgir.tsx.
+   Mesma disciplina do Revelar: o estado de partida entra sem transicao, senao
+   o navegador anima ATE ele em vez de sair dele. */
+.surgir[data-pronto] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: none;
+}
+
+.surgir[data-visivel] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 700ms cubic-bezier(0.16, 0.84, 0.44, 1),
+    transform 900ms cubic-bezier(0.16, 0.84, 0.44, 1);
+  transition-delay: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Sem deslocamento. So o esmaecer, que nao produz movimento. */
+  .surgir[data-pronto] { transform: none; }
+  .surgir[data-visivel] {
+    transition: opacity 500ms linear !important;
+    transition-delay: inherit;
+  }
+}
+
+/* Trilho do carrossel: rola na horizontal sem mostrar barra, que aqui seria
+   um tracinho cinza atravessando a fotografia. O percurso e indicado pela
+   regua abaixo das fotos. Ver components/Carrossel.tsx. */
+.trilho {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+}
+
+/* Sem scroll-snap. Com passagem continua o snap puxaria a rolagem de volta ao
+   item mais proximo a cada quadro, e o movimento ficaria tremendo. */
+
+.trilho::-webkit-scrollbar {
+  display: none;
+}
+
+/* Os dois icones do botao de pausa vivem no mesmo botao. Quem troca e o
+   data-pausado, para que a versao empacotada, sem React, use a mesma regra. */
+[data-carrossel="pausa"] .icone-play {
+  display: none;
+}
+
+[data-carrossel="pausa"][data-pausado] .icone-pausa {
+  display: none;
+}
+
+[data-carrossel="pausa"][data-pausado] .icone-play {
+  display: block;
+}
+
+/* Aproximacao lenta da fotografia ao passar o mouse.
+   Precisa vir depois das regras do Revelar e com especificidade maior, senao
+   `.revelar[data-visivel] img { transform: none }` cancela o aumento. E so no
+   ponteiro fino: em toque, hover fica preso depois do dedo sair. */
+/* Fora do Revelar a foto precisa da transicao de partida, senao ela volta do
+   aumento de uma vez quando o ponteiro sai. */
+@media (prefers-reduced-motion: no-preference) {
+  img.viva {
+    transition: transform 900ms cubic-bezier(0.16, 0.84, 0.44, 1);
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .revelar:hover img.viva,
+  figure:hover .revelar img.viva,
+  figure:hover img.viva {
+    transform: scale(1.04);
+    transition: transform 900ms cubic-bezier(0.16, 0.84, 0.44, 1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
